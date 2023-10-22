@@ -1,0 +1,23 @@
+version: '3'
+services:
+  express-app:
+    container_name: express-app
+    volumes:
+      - ./src:/var/www/tilka_test/src
+      - ./nodemon.json:/var/www/tilka_test/nodemon.json
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/book_store
+      - PORT=3000
+      - ALLOWED_ORIGINS=http://localhost:2000,http://localhost:3000,http://localhost:3001
+      - ACCESS_TOKEN_SECRET = '23909jendsfnru2@*()'
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: book_store

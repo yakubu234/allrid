@@ -1,0 +1,1804 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Event Scheduling and Resevation",
+    "description": "This is the documentation for EventX an online event organizing and reservation system. the API is hosted on Heroku, and can be found at https://event-reservation-system.herokuapp.com \n\nif you want to test the endpoints then the variable {{url}} should be https://event-reservation-system.herokuapp.com without trailing slash or your server IP Address if you clone the Laravel app to your local machine.\n\nAll .env parameters needed are available at the .env.example file, kindly use the variable and replace with your own parameters",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/ABIOLAYAKUBU_1/Api-test-2/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "{url}",
+      "variables": {
+        "url": {
+          "default": "https://event-reservation-system.herokuapp.com"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Event"
+    }
+  ],
+  "paths": {
+    "/api/event/create": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Create an event",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/event_create_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:38:24 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Create an event",
+                    "value": {
+                      "status": "Success",
+                      "message": "Event added successfully",
+                      "data": {
+                        "event": {
+                          "id": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                          "event_name": "NaijaHacks hundred 10",
+                          "location": "Zone Tech park, Gbagada, Lagos",
+                          "event_date": "2022-10-23",
+                          "event_uid": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                          "maximun_seats": "50",
+                          "start_time": "39:00",
+                          "type": "paid",
+                          "user": {
+                            "id": 1,
+                            "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                            "first_name": "Abiola",
+                            "last_name": "Yakubu",
+                            "email": "yakubuabiola2003@gmail.com",
+                            "created_at": "2022-08-08T10:00:23.000000Z",
+                            "updated_at": "2022-08-08T10:00:23.000000Z"
+                          },
+                          "ticket": []
+                        }
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Create an event",
+                    "value": {
+                      "status": "Success",
+                      "message": "Event added successfully",
+                      "data": {
+                        "event": {
+                          "id": "96f1c3ce-bc2b-4671-893c-f3f5c2e07b03",
+                          "event_name": "NaijaHacks",
+                          "location": "Zone Tech park, Gbagada, Lagos",
+                          "event_date": "2022-10-23",
+                          "type": "paid",
+                          "user": {
+                            "id": 1,
+                            "uid": "96f1bdca-21e3-4874-95a4-435c208d7f66",
+                            "first_name": "Abiola",
+                            "last_name": "Yakubu",
+                            "email": "yakubuabiola2003@gmail.com",
+                            "created_at": "2022-08-04T21:55:54.000000Z",
+                            "updated_at": "2022-08-04T21:55:54.000000Z"
+                          },
+                          "ticket": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 05 Aug 2022 11:09:57 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Create an event error",
+                    "value": {
+                      "message": "The event name has already been taken.",
+                      "errors": {
+                        "event_name": [
+                          "The event name has already been taken."
+                        ]
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Create an event Error",
+                    "value": {
+                      "message": "The selected user id is invalid.",
+                      "errors": {
+                        "user_id": [
+                          "The selected user id is invalid."
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/event/update": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Update an E",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "event_id": "96b09f19-3b76-4b92-9bce-aa5e0e216456",
+                  "event_name": "NaijaHacks Hackerton"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/event/delete": {
+      "delete": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Delete an event",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 11:34:14 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Success",
+                  "message": "Event deleted successfully"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 11:33:26 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "The selected event id is invalid.",
+                  "errors": {
+                    "event_id": [
+                      "The selected event id is invalid."
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/event/my-events": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "My events",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 11:09:13 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Success",
+                  "message": "Event fetched successfully",
+                  "data": {
+                    "events": [
+                      {
+                        "id": "96f8cf06-1052-4419-9357-dd346d135aee",
+                        "event_name": "NaijaHacks hundred",
+                        "location": "Zone Tech park, Gbagada, Lagos",
+                        "event_date": "2022-10-23",
+                        "event_uid": "96f8cf06-1052-4419-9357-dd346d135aee",
+                        "maximun_seats": "50",
+                        "start_time": "39:00",
+                        "type": "paid",
+                        "user": {
+                          "id": 1,
+                          "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                          "first_name": "Abiola",
+                          "last_name": "Yakubu",
+                          "email": "yakubuabiola2003@gmail.com",
+                          "created_at": "2022-08-08T10:00:23.000000Z",
+                          "updated_at": "2022-08-08T10:00:23.000000Z"
+                        },
+                        "ticket": []
+                      },
+                      {
+                        "id": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                        "event_name": "NaijaHacks hundred 10",
+                        "location": "Zone Tech park, Gbagada, Lagos",
+                        "event_date": "2022-12-23",
+                        "event_uid": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                        "maximun_seats": "50",
+                        "start_time": "39:00",
+                        "type": "paid",
+                        "user": {
+                          "id": 1,
+                          "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                          "first_name": "Abiola",
+                          "last_name": "Yakubu",
+                          "email": "yakubuabiola2003@gmail.com",
+                          "created_at": "2022-08-08T10:00:23.000000Z",
+                          "updated_at": "2022-08-08T10:00:23.000000Z"
+                        },
+                        "ticket": []
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/event": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "All Events",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 11:10:03 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Success",
+                  "message": "Event fetched successfully",
+                  "data": {
+                    "events": [
+                      {
+                        "id": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                        "event_name": "NaijaHacks hundred 10",
+                        "location": "Zone Tech park, Gbagada, Lagos",
+                        "event_date": "2022-12-23",
+                        "event_uid": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                        "maximun_seats": "50",
+                        "start_time": "39:00",
+                        "type": "paid",
+                        "user": {
+                          "id": 1,
+                          "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                          "first_name": "Abiola",
+                          "last_name": "Yakubu",
+                          "email": "yakubuabiola2003@gmail.com",
+                          "created_at": "2022-08-08T10:00:23.000000Z",
+                          "updated_at": "2022-08-08T10:00:23.000000Z"
+                        },
+                        "ticket": []
+                      },
+                      {
+                        "id": "96f8cf06-1052-4419-9357-dd346d135aee",
+                        "event_name": "NaijaHacks hundred",
+                        "location": "Zone Tech park, Gbagada, Lagos",
+                        "event_date": "2022-10-23",
+                        "event_uid": "96f8cf06-1052-4419-9357-dd346d135aee",
+                        "maximun_seats": "50",
+                        "start_time": "39:00",
+                        "type": "paid",
+                        "user": {
+                          "id": 1,
+                          "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                          "first_name": "Abiola",
+                          "last_name": "Yakubu",
+                          "email": "yakubuabiola2003@gmail.com",
+                          "created_at": "2022-08-08T10:00:23.000000Z",
+                          "updated_at": "2022-08-08T10:00:23.000000Z"
+                        },
+                        "ticket": []
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/event/create-ticket": {
+      "post": {
+        "tags": [
+          "Event"
+        ],
+        "summary": "Create Ticket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "event_id": "96f8d76f-23e9-4e68-9bbd-50603b162683",
+                  "amount": 5000,
+                  "type": "gold",
+                  "maximum_reservation": 10
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Fri, 05 Aug 2022 10:30:23 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Create Ticket",
+                    "value": {
+                      "status": "Success",
+                      "message": "Ticket created successfully",
+                      "data": {
+                        "ticket": {
+                          "uid": "96f2cb9c-3fd7-4c08-9e07-d985160e08c3",
+                          "event_id": 1,
+                          "amount": 5000,
+                          "type": "regular",
+                          "maximum_reservation": 4029,
+                          "updated_at": "2022-08-05T10:30:22.000000Z",
+                          "created_at": "2022-08-05T10:30:22.000000Z",
+                          "id": 3
+                        }
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Create Ticket",
+                    "value": {
+                      "status": "Success",
+                      "message": "Ticket created successfully",
+                      "data": {
+                        "ticket": {
+                          "event_id": 2,
+                          "type": "gold",
+                          "uid": "96f8ea36-6478-47f0-ad59-9841e63ff9d8",
+                          "amount": 5000,
+                          "current_reservation": "0",
+                          "maximum_reservation": 10,
+                          "updated_at": "2022-08-08T11:30:54.000000Z",
+                          "created_at": "2022-08-08T11:30:54.000000Z",
+                          "id": 2
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 11:17:51 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Create Ticket Error",
+                    "value": {
+                      "status": "Error",
+                      "message": "The maximum reservation you supplied is higher than the seats left",
+                      "data": "50 seats remaining"
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Create Ticket error 2",
+                    "value": {
+                      "status": "Error",
+                      "message": "You already create a regular ticket for this event",
+                      "data": " seats remaining"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/register": {
+      "post": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Register",
+        "parameters": [
+          {
+            "name": "accept",
+            "in": "header",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "first_name": "Abiola",
+                  "last_name": "Yakubu",
+                  "email": "yakubuabiola2003@gmail.com",
+                  "password": "@we4mk10qMM",
+                  "password_confirmation": "@we4mk10qMM"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:00:24 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Success",
+                  "message": "User created successfully",
+                  "data": {
+                    "token": "1|iAjAGDXO3oVRHbt6kyhL8l1cHRizNuoratAjDS8t",
+                    "user_details": {
+                      "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                      "first_name": "Abiola",
+                      "last_name": "Yakubu",
+                      "email": "yakubuabiola2003@gmail.com",
+                      "updated_at": "2022-08-08T10:00:23.000000Z",
+                      "created_at": "2022-08-08T10:00:23.000000Z",
+                      "id": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 09:59:14 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Register error, password condition not satisfied",
+                    "value": {
+                      "message": "The password must contain at least one uppercase and one lowercase letter.",
+                      "errors": {
+                        "password": [
+                          "The password must contain at least one uppercase and one lowercase letter."
+                        ]
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Register error email taken",
+                    "value": {
+                      "message": "The email has already been taken.",
+                      "errors": {
+                        "email": [
+                          "The email has already been taken."
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/signin": {
+      "post": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "yakubuabiola2003@gmail.com",
+                  "password": "@we4mk10qMM"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:02:23 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 58
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Success",
+                  "message": "login successful",
+                  "data": {
+                    "token": "2|nHPl1FcYI4Yje4RzgNGz7clx777t5zP26hgSqYmW",
+                    "user": {
+                      "id": 1,
+                      "uid": "96f8c9d6-528d-471a-94b9-4e210832fa4a",
+                      "first_name": "Abiola",
+                      "last_name": "Yakubu",
+                      "email": "yakubuabiola2003@gmail.com",
+                      "created_at": "2022-08-08T10:00:23.000000Z",
+                      "updated_at": "2022-08-08T10:00:23.000000Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:01:51 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "Error",
+                  "message": "Credentials do not match our records"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sign-out": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Signout",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:04:39 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "X-RateLimit-Limit": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 60
+                }
+              },
+              "X-RateLimit-Remaining": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "example": 59
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Tokens Revoked"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "Host": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Date": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 08 Aug 2022 10:03:17 GMT"
+                }
+              },
+              "Connection": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "close"
+                }
+              },
+              "X-Powered-By": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              "Cache-Control": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, private"
+                }
+              },
+              "Content-Type": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "application/json"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Unauthenticated."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "all events customer",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "event_create_body": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "example": "96f8c9d6-528d-471a-94b9-4e210832fa4a"
+          },
+          "event_name": {
+            "type": "string",
+            "example": "NaijaHacks hundred 10"
+          },
+          "location": {
+            "type": "string",
+            "example": "Zone Tech park, Gbagada, Lagos"
+          },
+          "event_date": {
+            "type": "string",
+            "example": "2022-10-23"
+          },
+          "type": {
+            "type": "string",
+            "example": "paid"
+          },
+          "start_time": {
+            "type": "string",
+            "example": "39:00"
+          },
+          "end_time": {
+            "type": "string",
+            "example": "40:00"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary"
+          },
+          "maximun_seats": {
+            "type": "integer",
+            "example": 50
+          },
+          "status": {
+            "type": "string",
+            "example": "active"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
