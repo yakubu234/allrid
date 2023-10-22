@@ -4,15 +4,16 @@ import { addShorthenUrl } from '../../actions/shorthen/addShorthenUrlAction';
 import { updateShorthenUrl } from '../../actions/shorthen/updateShorthenUrlAction';
 import { deleteShorthenUrl } from '../../actions/shorthen/deleteShorthenUrlAction';
 
-import  handleResponse  from "../../utils/Response";
+import  handleResponse  from "../../utils/response";
 
 class ShorthenerController {
     add = async (req: Request, res: Response) =>
     {
+        const url = `${req.protocol}://${req.get('host')}/`;
         const requiredData = matchedData(req, { includeOptionals: false });
-
+  
         try {
-            const result = await addShorthenUrl(requiredData);
+            const result = await addShorthenUrl(requiredData,url);
             handleResponse(res, result, 201);
         } catch (error) {
             console.log(JSON.stringify(error))

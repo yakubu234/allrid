@@ -3,7 +3,7 @@ import { matchedData } from 'express-validator';
 import { authenticateUser,generateAccessToken} from "../../middleware/auth";
 import { registerUser } from '../../actions/auth/RegisterAction';
 import { forgotPassword } from '../../actions/auth/ForgotPasswordAction';
-import  handleResponse  from "../../utils/Response";
+import  handleResponse  from "../../utils/response";
 
 class AuthController {
 

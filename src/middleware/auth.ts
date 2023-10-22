@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import User from "../models/User";
-import  handleResponse  from "../utils/Response";
+import  handleResponse  from "../utils/response";
 
 export function authenticateToken(
     req: Request,

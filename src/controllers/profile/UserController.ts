@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { matchedData } from 'express-validator';
 import { updateProfile } from '../../actions/profile/UpdateProfileAction';
 import { updatePassword } from '../../actions/profile/UpdatePasswordAction';
-import  handleResponse  from "../../utils/Response";
+import  handleResponse  from "../../utils/response";
 
 class UserController {
 

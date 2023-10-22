@@ -10,10 +10,12 @@ class ShorthendLink extends Model {
     public link_type!: string;
     public link_expiry!: string;
     public total_click!: string;
+    public short_url!: string;
+    
 
-    public static getUserByUsername = async (email: string): Promise<ShorthendLink | null> =>
+    public static get = async (formData:any): Promise<ShorthendLink | null> =>
     {
-        return ShorthendLink.findOne({ where: { email } });
+      return ShorthendLink.findOne({ where: formData });
     }
 
     public static add = async (formData: any) : Promise <ShorthendLink | null> => 
@@ -21,7 +23,7 @@ class ShorthendLink extends Model {
 
         try {
 
-        const data = await ShorthendLink.create(formData);  
+        const data = await ShorthendLink.create({...formData,user_id:formData.uuid});  
 
         const response = { ...data.toJSON() };
         delete response.id;
@@ -78,6 +80,7 @@ class ShorthendLink extends Model {
     link_type: DataTypes.STRING,
     link_expiry: DataTypes.STRING,
     total_click: DataTypes.STRING,
+    short_url: DataTypes.STRING,
   }, {
     sequelize,
     modelName: "ShorthendLink",
