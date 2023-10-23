@@ -13,7 +13,7 @@ const handleRedirect = async (req:any, res:any) => {
     const description = "this is a random image title and description here";
     const image = "https://raw.githubusercontent.com/mobalti/open-props-interfaces/main/image-gallery/images/img-5.webp";
     const type = "og.url";
-    const redirect_url = "og.url";
+    const redirect_url = data.original_link;
 
     res.render('redirect_template', { title, description, image,type,redirect_url });
     

@@ -4,8 +4,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import baseRouter from './routes/Index';
-import handleRedirect from "./utils/renderRedirectUrl";
-
+import webRouter from './routes/web'
 /** parse the dot env and get the port */
 dotenv.config({ path: __dirname+'/env/.env' })
 const PORT  = process.env.PORT ?? 3000;
@@ -28,15 +27,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'view', 'swagger.html'));
-});
-
-app.get('/:short_code', async (req, res)  => {
-  return await handleRedirect(req, res);//point to the handler to redirect the user to the original url 
-});
 
 
+app.use(webRouter); // the web route
 app.use('/api',baseRouter); // this uses a base router all other router files extends the base router in thir definitions
 
 

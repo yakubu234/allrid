@@ -1,0 +1,682 @@
+<%- include ('partials/header',{title_tag: 'The home page'}) %>
+<div class="main-wrapper">
+
+<header class="header header-two">
+<div class="header-fixed">
+<nav class="navbar navbar-expand-lg header-nav scroll-sticky">
+<div class="container">
+
+<div class="navbar-header">
+<a id="mobile_btn" href="javascript:void(0);">
+<span class="bar-icon">
+<span></span>
+<span></span>
+<span></span>
+</span>
+</a>
+<a href="index.html" class="navbar-brand logo">
+<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+</a>
+</div>
+<!-- import the nav bar -->
+<%- include ('partials/navbar',{isLoggedIn: false}) %>
+
+</div>
+</nav>
+</div>
+</header>
+
+
+<section class="home-two-slide d-flex align-items-center">
+<div class="container">
+<div class="row ">
+<div class="col-lg-10 col-12" data-aos="fade-up">
+<div class="home-slide-face">
+<div class="home-slide-text ">
+<h5>The Leader in Url Shorthener</h5>
+<h1>Flexibility, Accessibility & Swiftness all in one</h1>
+</div>
+<div class="banner-content col-sm-8">
+<form class="form" name="store">
+<div class="form-inner">
+<div class="input-group">
+
+<input type="url" class="form-control"  id="public_url" placeholder="enter a valid url">
+<button class="btn btn-primary sub-btn" onclick="publicShortLink(event)" id="public_short_link" type="submit"><i class="feather-scissors"></i> Shorthen</button>
+<div id="message-success" style="color: green;"></div>
+<div id="message-error" style="color: red;"></div>
+</div>
+</div>
+</form>
+</div>
+<div class="trust-user-two">
+<p>Trusted by over 15K Users worldwide since 2022</p>
+<div class="rating-two">
+<span>4.4</span>
+<i class="fas fa-star filled"></i>
+<i class="fas fa-star filled"></i>
+<i class="fas fa-star filled"></i>
+<i class="fas fa-star filled"></i>
+<i class="fas fa-star filled"></i>
+</div>
+
+</div>
+</div>
+
+<!-- last three reated links -->
+    <div class="settings-widget" style="display: none;" id="url_table_div">
+        <div class="settings-inner-blk p-0">
+        <div class="comman-space pb-0">
+        <div class="filter-grp user-referred table-select-blk d-flex align-items-center justify-content-between">
+        <h3>Shorthend Link</h3>
+
+        <%#
+        <div class="filter-blk d-flex">
+        <div class="form-group select-form mb-0">
+        <select class="form-select select" id="datefilter" name="datefilterby">
+        <option>Month</option>
+        <option>Daily</option>
+        <option>Week</option>
+        </select>
+        </div>
+        <div class="form-group select-form mb-0">
+        <select class="form-select select" id="filterpicker" name="filterpickerby">
+        <option>Oct 2020</option>
+        <option>Jan 2020</option>
+        <option>Feb 2020</option>
+        <option>Mar 2020</option>
+        </select>
+        </div>
+        </div>
+        %>
+
+        </div>
+        <div class="settings-referral-blk table-responsive">
+        
+        <table class="table table-nowrap mb-0" id="url_table">
+        <thead>
+        <tr>
+        <th>Creator</th>
+        <th>Short ID</th>
+        <th>URL</th>
+        <th>&nbsp;</th>
+        <th class="text-center">Visits</th>
+        
+        </tr>
+        </thead>
+        <tbody id="url_table_body">
+        
+        
+
+        </tbody>
+        </table>
+        
+        </div>
+        </div>
+        </div>
+
+
+        </div>
+ <!-- last three reated links ended -->
+
+</div>
+</div>
+
+<div class="shapes">
+<img class="shapes-one" src="assets/img/bg/home-right.png" alt>
+<img class="shapes-two" src="assets/img/bg/home-right-bottom.png" alt>
+<img class="shapes-middle" src="assets/img/bg/home-middle.png" alt>
+<img class="shapes-four wow animate__animated animate__slideInLeft" src="assets/img/bg/home-left.png" alt>
+</div>
+
+</div>
+</section>
+
+
+<%#
+<section class="topcategory-sec">
+<div class="container">
+<div class="header-two-title text-center" data-aos="fade-up">
+<p class="tagline">Favourite Features</p>
+<h2>Features</h2>
+<div class="header-two-text">
+<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse imperdiet.</p>
+</div>
+</div>
+<div class="top-category-group">
+<div class="row">
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-1.svg" alt="Angular Development">
+</div>
+<div class="categories-content">
+<h3>Angular Development</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-2.svg" alt="Python Development">
+</div>
+<div class="categories-content">
+<h3>Python Development</h3>
+<p>20 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-3.svg" alt="Node Js Development">
+</div>
+<div class="categories-content">
+<h3>Node Js Development</h3>
+<p>120 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-4.svg" alt="PHP Development">
+</div>
+<div class="categories-content">
+<h3>PHP Development</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-5.svg" alt="Docker Development">
+</div>
+<div class="categories-content">
+<h3>Docker Development</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item  flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-6.svg" alt="Swift Development">
+</div>
+<div class="categories-content">
+<h3>Swift Development</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex" data-aos="fade-down">
+<div class="categories-item  flex-fill">
+<div class="categories-icon">
+<img src="assets/img/category/category-7.svg" alt="Photography">
+</div>
+<div class="categories-content">
+<h3>Photography</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex">
+<div class="categories-item  flex-fill" data-aos="fade-up">
+<div class="categories-icon">
+<img src="assets/img/category/category-8.svg" alt="Business">
+</div>
+<div class="categories-content">
+<h3>Business</h3>
+<p>40 Instructors</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</section> %>
+
+
+
+
+
+
+
+
+
+<section class="testimonial-sec">
+<div class="container">
+<div class="testimonial-two-img">
+<img src="assets/img/bg/map-user.png" alt class="img-fluid">
+</div>
+<div class="testimonial-subhead-two">
+<div class="col-xl-8 col-lg-10 col-md-10 mx-auto" data-aos="fade-down">
+<div class="testimonial-inner">
+<div class="header-two-title testimonial-head-two text-center">
+<h2 data-aos="fade-down">Join over <span>5 Million</span> Users</h2>
+<div class="header-two-text text-center">
+<p>Get certified, master modern tech skills, and level up your career — whether you’re starting out or a seasoned pro. 95% of eLearning learners report our hands-on content directly helped their careers.</p>
+</div>
+</div>
+<div class="row text-center">
+<div class="col-md-4 col-sm-12" data-aos="fade-up">
+<div class="course-count-two course-count">
+<h4><span class="counterUp text-orange">253,085</span></h4>
+<h5>TOTAL URL SHORTHEN</h5>
+</div>
+</div>
+<div class="col-md-4 col-sm-12" data-aos="fade-up">
+<div class="course-count-two  course-count">
+<h4><span class="counterUp text-green">1,205</span></h4>
+<h5>CLICKS THIS MONTH</h5>
+</div>
+</div>
+<div class="col-md-4 col-sm-12" data-aos="fade-up">
+<div class="course-count-two  course-count">
+<h4><span class="counterUp text-blue">253,085</span></h4>
+<h5>TOTAL CLICKS</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="knowledge-sec">
+    <div class="container">
+    <div class="header-two-title text-center" data-aos="fade-up">
+    <p class="tagline">Request Statistics</p>
+    <h2>Our Latest Updates</h2>
+    <div class="header-two-text text-center aos" data-aos="fade-up">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse imperdiet.</p>
+    </div>
+    </div>
+
+    <div class="award-winning-two">
+    
+    <!-- <div class="col-lg-6 col-sm-12" data-aos="fade-up"> -->
+        <div class="col-lg-12 col-sm-12" data-aos="fade-up">
+        <div class="joing-group">
+        <div class="joing-list">
+        <ul>
+        <div class="row">
+
+        <li class="col-lg-3 " data-aos="fade-bottom">
+        <div class="joing-header">
+        <span class="joing-icon ">
+        <img src="assets/img/icon/nigeria2.png" alt class="img-fluid" style="width: 40px; height: 40px;">
+        </span>
+        <div class="joing-content">
+        <h5 class="joing-title">Republic of Nigeria</h5>
+        <div class="joing-para">
+            <div class="course-count-two course-count">
+                <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                </div>
+        </div>
+        </div>
+        </div>
+        </li>
+
+
+
+        <li class="col-lg-3 " data-aos="fade-bottom">
+        <div class="joing-header">
+        <span class="joing-icon ">
+        <img src="assets/img/icon/other-country.png" alt class="img-fluid" style="width: 40px; height: 40px;">
+        </span>
+        <div class="joing-content">
+        <h5 class="joing-title">Other Countries</h5>
+        <div class="joing-para">
+            <div class="course-count-two course-count">
+                <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                </div>
+        </div>
+        </div>
+        </div>
+        </li>
+
+        <li class="col-lg-3 " data-aos="fade-bottom">
+            <div class="joing-header">
+            <span class="joing-icon ">
+            <img src="assets/img/icon/android-one.png" alt class="img-fluid" style="width: 55px; height: 55px;">
+            </span>
+            <div class="joing-content aos">
+            <h5 class="joing-title">Android OS</h5>
+            <div class="joing-para">
+                <div class="course-count-two course-count">
+                    <h5><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                    </div>
+            </div>
+            </div>
+            </div>
+            </li>
+
+            <li class="col-lg-3 " data-aos="fade-bottom" class="mb-0">
+                <div class="joing-header">
+                <span class="joing-icon ">
+                <img src="assets/img/icon/apple-one.png" alt class="img-fluid" style="width: 55px; height: 55px;">
+                </span>
+                <div class="joing-content aos">
+                <h5 class="joing-title">IOS</h5>
+                <div class="joing-para">
+                    <div class="course-count-two course-count">
+                        <h5><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                        </div>
+                </div>
+                </div>
+                </div>
+                </li>
+
+
+            <li class="col-lg-3 " data-aos="fade-bottom" class="mb-0">
+                <div class="joing-header">
+                <span class="joing-icon ">
+                <img src="assets/img/icon/windwos-10.png" alt class="img-fluid" style="width: 40px; height: 40px;">
+                </span>
+                <div class="joing-content aos">
+                <h5 class="joing-title">Windwos OS</h5>
+                <div class="joing-para">
+                    <div class="course-count-two course-count">
+                        <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                        </div>
+                </div>
+                </div>
+                </div>
+                </li>
+
+            <li class="col-lg-3 " data-aos="fade-bottom" class="mb-0">
+                <div class="joing-header">
+                <span class="joing-icon ">
+                <img src="assets/img/icon/chrome-logo-new.png" alt class="img-fluid" style="width: 40px; height: 40px;">
+                </span>
+                <div class="joing-content aos">
+                <h5 class="joing-title">Chrome Browser</h5>
+                <div class="joing-para">
+                    <div class="course-count-two course-count">
+                        <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                        </div>
+                </div>
+                </div>
+                </div>
+                </li>
+
+            <li class="col-lg-3 " data-aos="fade-bottom" class="mb-0">
+                <div class="joing-header">
+                <span class="joing-icon ">
+                <img src="assets/img/icon/mozilla-logo.jpeg" alt class="img-fluid" style="width: 40px; height: 40px;">
+                </span>
+                <div class="joing-content aos">
+                <h5 class="joing-title">Mozilla Browser</h5>
+                <div class="joing-para">
+                    <div class="course-count-two course-count">
+                        <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                        </div>
+                </div>
+                </div>
+                </div>
+                </li>
+
+            <li class="col-lg-3 " data-aos="fade-bottom" class="mb-0">
+                <div class="joing-header">
+                <span class="joing-icon ">
+                <img src="assets/img/icon/web-logo.png" alt class="img-fluid" style="width: 40px; height: 40px;">
+                </span>
+                <div class="joing-content aos">
+                <h5 class="joing-title">Other Browsers</h5>
+                <div class="joing-para">
+                    <div class="course-count-two course-count">
+                        <h5 ><span class="counterUp text-orange">253,085 </span><span class="text-orange">+</span></h5>
+                        </div>
+                </div>
+                </div>
+                </div>
+                </li>
+    </div>
+
+        
+        
+        </ul>
+        </div>
+        </div>
+        
+  </div>
+    
+    </div>
+    </div>
+ </section>
+
+
+
+<section class="real-reviews-sec">
+<div class="container">
+<div class="header-two-title text-center" data-aos="fade-up">
+<p class="tagline">Check out these real reviews</p>
+<h2>Users-love-us Don't take it from us</h2>
+<div class="header-two-text text-center m-auto">
+<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget aenean accumsan bibendum gravida maecenas augue elementum et neque. Suspendisse imperdiet.</p>
+</div>
+</div>
+<div class="real-reviews-group">
+<div class="row align-items-center">
+<div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up">
+<div class="reviews-img">
+<img src="assets/img/reviews-img-two.png" alt class="img-fluid">
+</div>
+</div>
+<div class="col-lg-6 col-md-12 col-md-12" data-aos="fade-up">
+<div class="owl-carousel real-reviews owl-theme">
+<div class="item">
+<div class="real-reviews-grid">
+<div class="review-content">
+<h3>Helps us to improve our productivity</h3>
+<p>High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.</p>
+</div>
+<div class="review-top">
+<div class="review-info">
+<h3 data-aos="fade-up">William George</h3>
+<h5 data-aos="fade-up">CEO & Chairman</h5>
+</div>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="real-reviews-grid">
+<div class="review-content">
+<h3>Helps us to improve our productivity</h3>
+<p>High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.</p>
+</div>
+<div class="review-top">
+<div class="review-info">
+<h3 data-aos="fade-up">Julian Adrose</h3>
+<h5 data-aos="fade-up">Manager</h5>
+</div>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="real-reviews-grid">
+<div class="review-content">
+<h3>Helps us to improve our productivity</h3>
+<p>High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.</p>
+</div>
+<div class="review-top">
+<div class="review-info">
+<h3>Gallegos</h3>
+<h5>CEO & MD</h5>
+</div>
+</div>
+</div>
+</div>
+<div class="item">
+<div class="real-reviews-grid">
+<div class="review-content">
+<h3>Helps us to improve our productivity</h3>
+<p>High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.High-definition video is video of higher resolution and quality than standard-definition. While there is no standardized meaning for high-definition, generally any video.</p>
+</div>
+<div class="review-top">
+<div class="review-info">
+<h3>William George</h3>
+<h5>CEO & Chairman</h5>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 d-flex justify-content-between align-items-center">
+<div class="owl-nav slide-nav-8 nav-control"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="client-two-carousel">
+<div class="lead-group-slider owl-carousel owl-theme">
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-01.png">
+</div>
+</div>
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-02.png">
+</div>
+</div>
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-03.png">
+</div>
+</div>
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-04.png">
+</div>
+</div>
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-05.png">
+</div>
+</div>
+<div class="item">
+<div class="lead-img">
+<img class="img-fluid" alt src="assets/img/lead-06.png">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<footer class="footer footer-two" data-aos="fade-up">
+
+<div class="footer-top">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 ">
+
+<div class="footer-widget footer-about">
+    <div class="col-md-6 col-sm-6  col-12" style="margin: 0px auto;" >
+        <div class="footer-logo">
+            <img src="assets/img/logo.svg" alt="logo">
+        </div>
+        <div class="footer-about-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris</p>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-12" >
+        <div class="social-icon">
+            <ul>
+                <li>
+                    <a href="index-two.html#" target="_blank"><i class="feather-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="index-two.html#" target="_blank"><i class="feather-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="index-two.html#" target="_blank"><i class="feather-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="index-two.html#" target="_blank"><i class="feather-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="footer-bottom">
+<div class="container">
+
+<div class="copyright">
+<div class="row">
+<div class="col-md-6 col-sm-12">
+<div class="copyright-text">
+<p class="mb-0">&copy; 2023 DreamsLMS. All rights reserved.</p>
+</div>
+</div>
+<div class="col-md-6 col-sm-12">
+<div class="privacy-policy">
+<ul>
+<li><a href="term-condition.html">Terms & Condition</a></li>
+<li><a href="privacy-policy.html">Privacy Policy</a></li>
+<li><a href="support.html">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</footer>
+
+</div>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/owl.carousel.min.js"></script>
+
+<script src="assets/plugins/aos/aos.js"></script>
+
+<script src="assets/js/jquery.waypoints.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+
+<script src="assets/plugins/feather/feather.min.js"></script>
+
+<script src="assets/plugins/select2/js/select2.min.js"></script>
+
+<script src="assets/plugins/slick/slick.js"></script>
+
+<script src="assets/plugins/swiper/js/swiper.min.js"></script>
+<script src="assets/js/xml_http_request.js"></script>
+
+<script src="assets/js/script.js"></script>
+<script src="assets/js/handlers/index.js"></script>
+</body>
+</html>

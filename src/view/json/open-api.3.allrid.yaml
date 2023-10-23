@@ -1,0 +1,663 @@
+openapi: 3.0.3
+info:
+  title: Scissors Api
+  version: 1.0.0
+  contact: { yakubu.abiola@yahoo.com}
+servers:
+- url: '{{URL}}'
+paths:
+  /api/profile/update.profile:
+    put:
+      tags:
+      - profile
+      summary: Update details
+      description: Update details
+      operationId: updateDetails
+      parameters:
+      - name: user-x-key
+        in: header
+        schema:
+          type: string
+          example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                first_name:
+                  type: string
+                  example: Yakubu
+                last_name:
+                  type: string
+                  example: Abiola
+                nick_name:
+                  type: string
+                  example: Aderibigbe_agnes
+                phone:
+                  type: string
+                  example: '304984934920430'
+            example:
+              address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+              first_name: Yakubu
+              last_name: Abiola
+              nick_name: Aderibigbe_agnes
+              phone: '304984934920430'
+      responses:
+        '201':
+          description: Update details
+          headers:
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+                example: 'true'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: '428'
+            Date:
+              schema:
+                type: string
+                example: Sun, 22 Oct 2023 09:50:48 GMT
+            ETag:
+              schema:
+                type: string
+                example: W/"1ac-pNSBr5RcBImiN7PBaDaalZqbdSw"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          address:
+                            type: string
+                            example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                          createdAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          email:
+                            type: string
+                            example: yakubu.abiola@yahoo.com
+                          first_name:
+                            type: string
+                            example: Yakubu
+                          last_name:
+                            type: string
+                            example: Abiola
+                          nick_name:
+                            type: string
+                            example: Aderibigbe_agnes
+                          phone:
+                            type: string
+                            example: '304984934920430'
+                          status:
+                            type: string
+                            example: active
+                          updatedAt:
+                            type: string
+                            example: 2023-10-22T09:50:48.646Z
+                          uuid:
+                            type: string
+                            example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                          verified:
+                            type: boolean
+                            example: false
+                  message:
+                    type: string
+                    example: Update successful
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Update details:
+                  value:
+                    data:
+                      user:
+                        address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                        createdAt: 2023-10-22T09:47:01.521Z
+                        email: yakubu.abiola@yahoo.com
+                        first_name: Yakubu
+                        last_name: Abiola
+                        nick_name: Aderibigbe_agnes
+                        phone: '304984934920430'
+                        status: active
+                        updatedAt: 2023-10-22T09:50:48.646Z
+                        uuid: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                        verified: false
+                    message: Update successful
+                    status: success
+  /api/profile/update.password:
+    put:
+      tags:
+      - profile
+      summary: update password
+      description: update password
+      operationId: updatePassword
+      parameters:
+      - name: user-x-key
+        in: header
+        schema:
+          type: string
+          example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                confirm_password:
+                  type: string
+                  example: Kq)(09nM
+                password:
+                  type: string
+                  example: Kq)(09nM
+            example:
+              confirm_password: Kq)(09nM
+              password: Kq)(09nM
+      responses:
+        '201':
+          description: update password
+          headers:
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+                example: 'true'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: '420'
+            Date:
+              schema:
+                type: string
+                example: Sun, 22 Oct 2023 09:49:57 GMT
+            ETag:
+              schema:
+                type: string
+                example: W/"1a4-MLPhSGjshFJSyEoVpKv4QcEhZ9s"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        type: object
+                        properties:
+                          address:
+                            type: string
+                            example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                          createdAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          email:
+                            type: string
+                            example: yakubu.abiola@yahoo.com
+                          first_name:
+                            type: string
+                            example: Yakubu
+                          last_name:
+                            type: string
+                            example: Abiola
+                          nick_name:
+                            nullable: true
+                            example: null
+                          phone:
+                            type: string
+                            example: '304984934930'
+                          status:
+                            type: string
+                            example: active
+                          updatedAt:
+                            type: string
+                            example: 2023-10-22T09:49:57.481Z
+                          uuid:
+                            type: string
+                            example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                          verified:
+                            type: boolean
+                            example: false
+                  message:
+                    type: string
+                    example: Password Update successful
+                  status:
+                    type: string
+                    example: success
+              examples:
+                update password:
+                  value:
+                    data:
+                      user:
+                        address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                        createdAt: 2023-10-22T09:47:01.521Z
+                        email: yakubu.abiola@yahoo.com
+                        first_name: Yakubu
+                        last_name: Abiola
+                        nick_name: null
+                        phone: '304984934930'
+                        status: active
+                        updatedAt: 2023-10-22T09:49:57.481Z
+                        uuid: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                        verified: false
+                    message: Password Update successful
+                    status: success
+  /api/auth/register:
+    post:
+      tags:
+      - Auth
+      summary: Register
+      description: Register
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                confirm_password:
+                  type: string
+                  example: 12!@qwQW
+                email:
+                  type: string
+                  example: yakubu.abiola@yahoo.com
+                first_name:
+                  type: string
+                  example: Yakubu
+                last_name:
+                  type: string
+                  example: Abiola
+                nick_name:
+                  type: string
+                  example: ''
+                password:
+                  type: string
+                  example: 12!@qwQW
+                phone:
+                  type: string
+                  example: '304984934930'
+            example:
+              address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+              confirm_password: 12!@qwQW
+              email: yakubu.abiola@yahoo.com
+              first_name: Yakubu
+              last_name: Abiola
+              nick_name: ''
+              password: 12!@qwQW
+              phone: '304984934930'
+      responses:
+        '201':
+          description: Register
+          headers:
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+                example: 'true'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: '693'
+            Date:
+              schema:
+                type: string
+                example: Sun, 22 Oct 2023 09:47:01 GMT
+            ETag:
+              schema:
+                type: string
+                example: W/"2b5-a1284BdFU/1QE680nqds4guu2PM"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZDIxNDk5ZTEtMTkwNC00ZjdmLWE3YWYtYmI0ODkyOWNhOWYwIiwiZW1haWwiOiJ5YWt1YnUuYWJpb2xhQHlhaG9vLmNvbSIsInN0YXR1cyI6ImFjdGl2ZSIsImlhdCI6MTY5Nzk2ODAyMSwiZXhwIjoxNjk3OTcxNjIxfQ.aEEWZBzH5Nl2Xu3C0gCrtikXHrRVJRFjJ7tNw8IetOI
+                      user:
+                        type: object
+                        properties:
+                          address:
+                            type: string
+                            example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                          createdAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          email:
+                            type: string
+                            example: yakubu.abiola@yahoo.com
+                          first_name:
+                            type: string
+                            example: Yakubu
+                          last_name:
+                            type: string
+                            example: Abiola
+                          nick_name:
+                            nullable: true
+                            example: null
+                          phone:
+                            type: string
+                            example: '304984934930'
+                          status:
+                            type: string
+                            example: active
+                          updatedAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          uuid:
+                            type: string
+                            example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                          verified:
+                            type: boolean
+                            example: false
+                  message:
+                    type: string
+                    example: Registration successful
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Register:
+                  value:
+                    data:
+                      accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZDIxNDk5ZTEtMTkwNC00ZjdmLWE3YWYtYmI0ODkyOWNhOWYwIiwiZW1haWwiOiJ5YWt1YnUuYWJpb2xhQHlhaG9vLmNvbSIsInN0YXR1cyI6ImFjdGl2ZSIsImlhdCI6MTY5Nzk2ODAyMSwiZXhwIjoxNjk3OTcxNjIxfQ.aEEWZBzH5Nl2Xu3C0gCrtikXHrRVJRFjJ7tNw8IetOI
+                      user:
+                        address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                        createdAt: 2023-10-22T09:47:01.521Z
+                        email: yakubu.abiola@yahoo.com
+                        first_name: Yakubu
+                        last_name: Abiola
+                        nick_name: null
+                        phone: '304984934930'
+                        status: active
+                        updatedAt: 2023-10-22T09:47:01.521Z
+                        uuid: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                        verified: false
+                    message: Registration successful
+                    status: success
+  /api/auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login
+      description: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: yakubu.abiola@yahoo.com
+                password:
+                  type: string
+                  example: Kq)(09nM
+            example:
+              email: yakubu.abiola@yahoo.com
+              password: Kq)(09nM
+      responses:
+        '200':
+          description: Login
+          headers:
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+                example: 'true'
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: '692'
+            Date:
+              schema:
+                type: string
+                example: Sun, 22 Oct 2023 09:47:33 GMT
+            ETag:
+              schema:
+                type: string
+                example: W/"2b4-OvxlX6pDWt0awiNChd0x+BDRTvE"
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5
+            Vary:
+              schema:
+                type: string
+                example: Origin
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      accessToken:
+                        type: string
+                        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZDIxNDk5ZTEtMTkwNC00ZjdmLWE3YWYtYmI0ODkyOWNhOWYwIiwiZW1haWwiOiJ5YWt1YnUuYWJpb2xhQHlhaG9vLmNvbSIsInN0YXR1cyI6ImFjdGl2ZSIsImlhdCI6MTY5Nzk2ODA1MywiZXhwIjoxNjk3OTcxNjUzfQ.jJoUKl7ns6nz0NB7SBe4-hjZRyaTebeWsCZwldDhcEc
+                      userRecord:
+                        type: object
+                        properties:
+                          address:
+                            type: string
+                            example: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                          createdAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          email:
+                            type: string
+                            example: yakubu.abiola@yahoo.com
+                          first_name:
+                            type: string
+                            example: Yakubu
+                          last_name:
+                            type: string
+                            example: Abiola
+                          nick_name:
+                            nullable: true
+                            example: null
+                          phone:
+                            type: string
+                            example: '304984934930'
+                          status:
+                            type: string
+                            example: active
+                          updatedAt:
+                            type: string
+                            example: 2023-10-22T09:47:01.521Z
+                          uuid:
+                            type: string
+                            example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                          verified:
+                            type: boolean
+                            example: false
+                  message:
+                    type: string
+                    example: login successful
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Login:
+                  value:
+                    data:
+                      accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZDIxNDk5ZTEtMTkwNC00ZjdmLWE3YWYtYmI0ODkyOWNhOWYwIiwiZW1haWwiOiJ5YWt1YnUuYWJpb2xhQHlhaG9vLmNvbSIsInN0YXR1cyI6ImFjdGl2ZSIsImlhdCI6MTY5Nzk2ODA1MywiZXhwIjoxNjk3OTcxNjUzfQ.jJoUKl7ns6nz0NB7SBe4-hjZRyaTebeWsCZwldDhcEc
+                      userRecord:
+                        address: 7 gilber mouroundi way, john andrews drive. oblankeshr
+                        createdAt: 2023-10-22T09:47:01.521Z
+                        email: yakubu.abiola@yahoo.com
+                        first_name: Yakubu
+                        last_name: Abiola
+                        nick_name: null
+                        phone: '304984934930'
+                        status: active
+                        updatedAt: 2023-10-22T09:47:01.521Z
+                        uuid: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+                        verified: false
+                    message: login successful
+                    status: success
+  /api/auth/forgot.password:
+    post:
+      tags:
+      - Auth
+      summary: forgot password
+      description: forgot password
+      operationId: forgotPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: yakubu.abiola@yahoo.com
+            example:
+              email: yakubu.abiola@yahoo.com
+      responses:
+        '200':
+          description: ''
+  /api/shorthen/add.link:
+    post:
+      tags:
+      - shorthen
+      summary: shorthen Url protected
+      description: shorthen Url protected
+      operationId: shorthenUrlProtected
+      parameters:
+      - name: user-x-key
+        in: header
+        schema:
+          type: string
+          example: d21499e1-1904-4f7f-a7af-bb48929ca9f0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                link_expiry:
+                  type: string
+                  example: ''
+                link_type:
+                  type: string
+                  example: web
+                original_link:
+                  type: string
+                  example: https://abiolayakubufnendf.com.sg
+                redirect_link:
+                  type: string
+                  example: ''
+                short_link:
+                  type: string
+                  example: ''
+            example:
+              link_expiry: ''
+              link_type: web
+              original_link: https://abiolayakubufnendf.com.sg
+              redirect_link: ''
+              short_link: ''
+      responses:
+        '200':
+          description: ''
+  /api/shorthen/add.link.public:
+    post:
+      tags:
+      - shorthen
+      summary: shorthen Url public
+      description: shorthen Url public
+      operationId: shorthenUrlPublic
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                link_type:
+                  type: string
+                  example: ''
+                original_link:
+                  type: string
+                  example: https://abiolayakubu.com.ng
+            example:
+              link_type: ''
+              original_link: https://abiolayakubu.com.ng
+      responses:
+        '200':
+          description: ''
+tags:
+- name: profile
+- name: Auth
+- name: shorthen
+- name: analytics
+
