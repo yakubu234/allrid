@@ -3,6 +3,7 @@ import usersRouter from './User'
 import profileRouter from './Profile'
 import shorthenRouter from './Shorthen'
 
+
 const baseRouter = Router();
 
 
@@ -11,6 +12,7 @@ baseRouter.get('', (req, res) => {
 });
 
 
+// baseRouter.use(webRouter);
 baseRouter.use('/auth',usersRouter);
 baseRouter.use('/profile',profileRouter);
 baseRouter.use('/shorthen',shorthenRouter);

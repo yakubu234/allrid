@@ -19,3 +19,121 @@
     </script>
 </body> ->
 </html>-->
+<script>
+
+function serializeForm(form)
+{
+    let rawData = new FormData(form);
+    let data = {};
+
+   for(let pair of rawData.entries()) {
+     data[pair[0]] = pair[1]; 
+    }
+
+    // data['_token'] = csrf
+    return JSON.stringify(data);
+}
+
+
+function logForm(data)
+{
+	for (let [key, value] of data) {console.log(`${key}: ${value}`)  }
+}
+
+
+var client = new HttpClient();
+
+			client.get(public_url+'/all-events', csfr_gen, null, (response) =>{
+				if(response.status == 'Success'){
+
+					if(response.data.events === null || response.data.events.length == 0) {
+						document.getElementById('alertdiv').innerHTML = '<div id="alertss" class="alertss alert__danger"><p class="alert__text" style="color:white;"> No events available in the system</p><button class="close-button"  onclick="closePop(this);" data-close-button="data-close-button"><div class="close-button__icon"></div></button> </div>';
+                	}
+                
+                	if(response.data.events.length > 0){
+						
+					document.getElementById('alertdiv').innerHTML = '<div id="alertss" class="alertss alert__success"><p class="alert__text"  style="color:white;">'+response.message+'</p><button class="close-button" onclick="closePop(this);" data-close-button="data-close-button"><div class="close-button__icon"></div></button> </div>';
+
+					d = response.data.events
+					setSessionWithExpiry('eventx02L93dn', response.data.events, 40)
+					Object.keys(d).forEach(key => {// console.log(key, d[key]);
+                        
+						date = new Date(d[key].event_date)//convert to new day
+						let start_time = formatTime(d[key].start_time)//format start time
+
+						if(key > 7) {
+							return;
+						}
+                    document.getElementById('listing-events').innerHTML +='<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix arts concert workshops volunteer sports health_Wellness" data-ref="mixitup-target"> <div class="main-card mt-4"> <div class="event-thumbnail"> <a href="event_detail.html?raw='+d[key].event_uid+'&val='+url_val+'" class="thumbnail-img"> <img src="images/event-imgs/img-1.jpg" alt="">  </a> </div> <div class="event-content"> <a href="event_detail.html?raw='+d[key].event_uid+'&val='+url_val+'" class="event-title">'+d[key].event_name+'</a> <div class="duration-price-remaining"> <span class="duration-price">'+d[key].type+'*</span>  <span class="remaining"></span> </div> </div> <div class="event-footer"> <div class="event-timing"> <div class="publish-date"> <span><i class="fa-solid fa-calendar-day me-2"></i>'+monthsJs[date.getMonth()]+' '+date.getDate() +' '+date.getFullYear()+'</span> <span class="dot"><i class="fa-solid fa-circle"></i></span>  <span></span>  </div> <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>'+start_time +'</span> </div></div></div></div>';
+                    });
+
+					document.getElementById("browse-btn").style.display = "block";
+                   
+               		}
+				}else{
+					document.getElementById('alertdiv').innerHTML = '<div id="alertss" class="alertss alert__danger"><p class="alert__text" style="color:white;">'+response.message+'</p><button class="close-button"  onclick="closePop(this);" data-close-button="data-close-button"><div class="close-button__icon"></div></button> </div>';
+				}
+
+				$('body').delay(50).css({'overflow':'visible'});
+				$('#status-loader').delay(300).fadeOut();
+				$('#preloader').delay(320).fadeOut('slow');
+			});
+
+
+
+
+            $('#status').fadeOut(); 
+    $('#preloader').delay(350).fadeOut('slow');
+    var form = document.getElementById('inputform')
+    form.addEventListener('submit',function(event){
+        event.preventDefault()
+        let data = serializeForm(form) 
+
+        $('#status').fadeIn();  
+        $('#preloader').delay(150).fadeIn('slow');
+
+        var client = new HttpClient();
+		client.get('https://laravel-csrf-scrapper.herokuapp.com/csrf_scraper.php?url=' + encodedUrl,null,null, function(response) {
+		if(response.message !== 'success')alert('error here'); 
+
+            var client = new HttpClientPost();
+            client.get(public_url+'/register',data, response.token,null, (response) =>{
+                if(response.errors){
+                    d = response.errors
+                    Object.keys(d).forEach(key => {// console.log(key, d[key]);
+                        if(key == 'password'){
+                            document.querySelector('input[name|='+key+']').value='';
+                            document.querySelector('input[name|=password_confirmation]').value='';
+                        }
+
+                        $(document).find('[name='+key+']').after('<span class="text-strong text-danger">' +d[key]+ '</span>')
+
+                    });
+                }
+
+                if(response.status == 'Error'){
+                    document.getElementById('alertdiv').innerHTML = '<div id="alertss" class="alertss alert__danger"><p class="alert__text" style="color:white;">'+response.message+'</p><button class="close-button"  onclick="closePop(this);" data-close-button="data-close-button"><div class="close-button__icon"></div></button> </div>';
+                }
+
+                if(response.status == 'Success'){
+
+					document.getElementById('alertdiv').innerHTML = '<div id="alertss" class="alertss alert__success"><p class="alert__text"  style="color:white;">'+response.message+'</p><button class="close-button" onclick="closePop(this);" data-close-button="data-close-button"><div class="close-button__icon"></div></button> </div>';
+
+                    response.message//display this message
+                    var data = response.data
+                    delete data.user_details.id
+                    data.user_details.uid
+                    setWithExpiry(data.user_details.uid, data, 30)
+                    URL_add_parameter(base_url()+'/dashboard.html',data.user_details.uid)
+                    form.reset()
+                }
+                
+
+                $('#status').fadeOut(); 
+                $('#preloader').delay(350).fadeOut('slow');
+            });
+        });
+		
+    })
+
+            </script>
